@@ -1,0 +1,42 @@
+.navbar-brand {
+  padding-left: 8%;
+}
+
+.box{
+  max-width: 600px;
+  margin: 5% auto;
+  background: white;
+  border-radius: 5px;
+  box-shadow: 5px 5px 15px -5px rgba(0, 0, 0, 0.3);
+}
+
+.item {
+  min-height: 70px;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #F1F1F1;
+}
+
+.item:last-child {
+  border-bottom: 0;
+}
+
+.form-group{
+  margin:2%;
+}
+
+p {
+  margin: 0;
+  padding: 20px;
+  font-size: 20px;
+  font-weight: 200;
+  color: #00204a;
+}
+
+.head {
+  background-color: #007bff;
+  color: white;
+  text-align: center;
+  padding: 5px;
+  border-radius: 15px;
+}

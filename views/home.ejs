@@ -1,0 +1,26 @@
+<%- include("partials/header") %>
+<main role="main">
+  <!-- Main jumbotron for a primary marketing message or call to action -->
+  <div class="jumbotron">
+    <div class="container">
+      <h1 class="display-3">Welcome!</h1>
+      <p>Delivering food from restaurents in chalakudy area to your house.</p>
+      <p><a class="btn btn-primary btn-lg" href="#" role="button">Contact Us &raquo;</a></p>
+    </div>
+  </div>
+
+  <div class="container">
+    <!-- Example row of columns -->
+    <div class="row">
+      <% restaurents.forEach(function(restaurent){ %>
+        <div class="col-md-4">
+          <h2><%= restaurent.name %></h2>
+          <p><%= restaurent.description %></p>
+          <p><a class="btn btn-secondary" href="/<%=restaurent.name%>" role="button">View details &raquo;</a></p>
+        </div>
+      <% }) %>
+    </div>
+    <hr>
+  </div> <!-- /container -->
+</main>
+<%- include("partials/footer") %>
