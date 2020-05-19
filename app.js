@@ -32,7 +32,7 @@ app.get("/", function(req,res){
   })
 });
 
-app.get("/:name",function(req,res){
+app.get("/restaurent/:name",function(req,res){
   const name = req.params.name;
   Restaurent.findOne({name:name},function(err,doc){
     if(!err){
@@ -56,7 +56,7 @@ app.post("/orders", function(req,res){
   }
 });
 
-app.get("/admin/orders",function(req,res){
+app.get("/a-orders",function(req,res){
   Order.find({}, function(err, docs){
     if(!err){
       res.render("orders", {orders:docs})
@@ -64,7 +64,7 @@ app.get("/admin/orders",function(req,res){
   })
 });
 
-app.get("/admin/restaurents", function(req,res){
+app.get("/a-restaurents", function(req,res){
   Restaurent.find({},function(err, docs){
     if(!err){
       res.render("adminRestaurents", {restaurents: docs})
@@ -72,8 +72,12 @@ app.get("/admin/restaurents", function(req,res){
   })
 })
 
-app.get("/admin/createRestaurent", function(req,res){
+app.get("/c-restaurent", function(req,res){
   res.render("createRestaurent")
+})
+
+app.post("/c-restaurent", function(req, res){
+  console.log(req.body);
 })
 
 app.listen(3000, function(){
