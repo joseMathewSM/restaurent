@@ -42,29 +42,40 @@ app.get("/:name",function(req,res){
 });
 
 app.post("/orders", function(req,res){
-  let tempOrderItems = req.body.selected.split("\r\n");
+  let tempOrderItems = req.body.selected.split("\r\n")
   let tempOrder = new Order({
     name :req.body.name,
     phone:req.body.mobile,
     address:req.body.address,
     restaurent:req.body.restName,
-    dateTime: new Date(),
+    dateTime: new Date().toLocaleString(),
     items:tempOrderItems
   })
-  tempOrder.save();
-})
-
-app.get("/confirmation",function(req,res){
-  res.render("confirmation")
+  if(tempOrder.save()){
+    res.render("confirmation")
+  }
 });
 
+app.get("/admin/orders",function(req,res){
+  Order.find({}, function(err, docs){
+    if(!err){
+      res.render("orders", {orders:docs})
+    }
+  })
+});
 
+app.get("/admin/restaurents", function(req,res){
+  Restaurent.find({},function(err, docs){
+    if(!err){
+      res.render("adminRestaurents", {restaurents: docs})
+    }
+  })
+})
 
-
-
-
-
+app.get("/admin/createRestaurent", function(req,res){
+  res.render("createRestaurent")
+})
 
 app.listen(3000, function(){
   console.log("Server running on Port 3000.")
-})
+});

@@ -1,0 +1,29 @@
+<%- include("partials/header") %>
+<% let tempOrders = orders.reverse() %>
+<div class="box" style="max-width:80%">
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Name</th>
+        <th scope="col">Phone</th>
+        <th scope="col">Address</th>
+        <th scope="col">Restaurent</th>
+        <th scope="col">Items</th>
+        <th scope="col">DateTime</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% tempOrders.forEach(function(o){ %>
+      <tr>
+        <td> <%= o.name %> </td>
+        <td> <%= o.phone %> </td>
+        <td> <%= o.address %> </td>
+        <td> <%= o.restaurent %> </td>
+        <td> <% o.items.forEach(function(i){ %> <%= i+ "\n" %>  <% })%></td>
+        <td> <%= o.dateTime%> </td>
+      </tr>
+      <% }) %>
+    </tbody>
+  </table>
+</div>
+<%- include("partials/footer") %>

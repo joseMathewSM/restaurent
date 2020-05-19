@@ -1,0 +1,40 @@
+<%- include("partials/header") %>
+<div class="box" style="max-width:80%">
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Name</th>
+        <th scope="col">Phone</th>
+        <th scope="col">Address</th>
+        <th scope="col">Restaurent</th>
+        <th scope="col">Items</th>
+        <th scope="col">functions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% restaurents.forEach(function(r){ %>
+      <tr>
+        <td> <%= r.name %> </td>
+        <td> <%= r.phone %> </td>
+        <td> <%= r.address %> </td>
+        <td> <%= r.description.substring(0,20) + "..." %> </td>
+        <td> <% r.menu.forEach(function(i){ %> <%= i+ "\n" %>  <% })%></td>
+        <td>
+          <form action="index.html" method="post">
+            <button class="btn btn-primary" type="submit" name="update">Update</button>
+            <input name="updateItem" value="<%= r %>" hidden="true">
+          </form>
+          <form action="index.html" method="post">
+            <button class="btn btn-danger" type="submit" name="delete">Delete</button>
+            <input name="deleteItem" value="<%= r %>" hidden="true">
+          </form>
+        </td>
+      </tr>
+      <% }) %>
+    </tbody>
+  </table>
+  <form action="/" method="get">
+    <button class="btn btn-success" type="submit" name="add">Add</button>
+  </form>
+</div>
+<%- include("partials/footer") %>
