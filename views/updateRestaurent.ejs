@@ -1,0 +1,46 @@
+<%- include("partials/header") %>
+<form action="/u-restaurent" method="post">
+  <div class="box">
+    <div class="head">
+      <h3>Update <%= restaurent.name %></h3>
+    </div>
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" required="true" class="form-control" name="name" value="<%= restaurent.name %>">
+      </div>
+      <div class="form-group">
+        <label for="mobile">Phone</label>
+        <input type="text" required="true" class="form-control" name="mobile" value="<%= restaurent.phone %>">
+      </div>
+      <div class="form-group">
+        <label for="address">Address</label>
+        <input type="text" required="true" class="form-control" name="address" value="<%= restaurent.address %>">
+      </div>
+      <div class="form-group">
+        <label for="address">Description</label>
+        <input type="text" required="true" class="form-control" name="description" value="<%= restaurent.description %>">
+      </div>
+      <div class="form-group" id="itemGroup">
+        <label for="menu">Menu Items</label>
+        <% restaurent.menu.forEach(function(i){ %>
+          <div class="row">
+            <div class="col">
+              <input type="text" name="itemname" class="form-control" value="<%= i.name%>">
+            </div>
+            <div class="col">
+              <input type="number" name= "itemprice" class="form-control" value="<%= i.price%>">
+            </div>
+          </div>
+        <% }); %>
+        </div>
+      <div class="form-group">
+        <div class="col" style="margin:2%">
+          <button type="button" class="btn btn-success" onclick="addItem()">Add Item</button>
+        </div>
+        <input hidden="true" name="_id" value="<%=restaurent._id %>">
+        <button type="submit" class="btn btn-primary">Update</button>
+      </div>
+  </div>
+</form>
+
+<%- include("partials/footer") %>

@@ -20,13 +20,13 @@
         <td> <%= r.description.substring(0,20) + "..." %> </td>
         <td> <% r.menu.forEach(function(i){ %> <%= i+ "\n" %>  <% })%></td>
         <td>
-          <form action="index.html" method="post">
+          <form action="/u-restaurent" method="get">
+            <input name="updateItem" value="<%= r._id %>" hidden="true">
             <button class="btn btn-primary" type="submit" name="update">Update</button>
-            <input name="updateItem" value="<%= r %>" hidden="true">
           </form>
-          <form action="index.html" method="post">
+          <form action="/d-restaurent" method="post">
+            <input name="deleteItem" value="<%= r._id %>" hidden="true">
             <button class="btn btn-danger" type="submit" name="delete">Delete</button>
-            <input name="deleteItem" value="<%= r %>" hidden="true">
           </form>
         </td>
       </tr>

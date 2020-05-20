@@ -18,35 +18,31 @@
       </div>
       <div class="form-group">
         <label for="address">Description</label>
-        <input type="text" required="true" class="form-control" name="address" placeholder="Enter Description.">
+        <input type="text" required="true" class="form-control" name="description" placeholder="Enter Description.">
       </div>
-      <div class="form-group">
+      <div class="form-group" id="itemGroup">
         <label for="menu">Menu Items</label>
         <div class="row">
           <div class="col">
-            <input type="text" name="item1name" class="form-control" placeholder="Item Name">
+            <input type="text" required="true" name="itemname" class="form-control" placeholder="Item Name">
           </div>
           <div class="col">
-            <input type="number" name= "item1price" class="form-control" placeholder="Price">
+            <input type="number" name= "itemprice" class="form-control" placeholder="Price">
           </div>
         </div>
         <div class="row">
           <div class="col">
-            <input type="text" name="item2name" class="form-control" placeholder="Item Name">
+            <input type="text" required="true" name="itemname" class="form-control" placeholder="Item Name">
           </div>
           <div class="col">
-            <input type="number" name= "item2price" class="form-control" placeholder="Price">
+            <input type="number" name= "itemprice" class="form-control" placeholder="Price">
           </div>
         </div>
-        <div class="row">
-          <div class="col">
-            <input type="text" name="item3name" class="form-control" placeholder="Item Name">
-          </div>
-          <div class="col">
-            <input type="number" name= "item3price" class="form-control" placeholder="Price">
-          </div>
-        </div>
+      </div>
       <div class="form-group">
+        <div class="col" style="margin:2%">
+          <button type="button" class="btn btn-success" onclick="addItem()">Add Item</button>
+        </div>
         <button type="submit" class="btn btn-primary">Create</button>
       </div>
   </div>

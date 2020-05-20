@@ -40,3 +40,9 @@ p {
   padding: 5px;
   border-radius: 15px;
 }
+
+
+.jumbotron {
+  background-image: url("/images/foodbg.jpg");
+  background-size: cover;
+}
