@@ -34,15 +34,32 @@ p {
 }
 
 .head {
-  background-color: #007bff;
+  background-color: #6b5b95;
   color: white;
   text-align: center;
-  padding: 5px;
+  padding: 8px;
   border-radius: 15px;
 }
 
+.btn-majanda{
+  background-color: #6b5b95;
+  color:white;
+}
 
-.jumbotron {
-  background-image: url("/images/foodbg.jpg");
-  background-size: cover;
+.btn-menu {
+  background-color: #d64161;
+  color:white;
+}
+
+textarea {
+  padding:3%;
+  max-width: 100%;
+}
+
+.no-padding {
+  padding-left: 0;
+  padding-right: 0;
+  padding-bottom: 3%;
+  padding-top: 2%;
+  margin-top:50px;
 }

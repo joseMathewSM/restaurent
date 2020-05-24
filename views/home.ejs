@@ -1,12 +1,7 @@
 <%- include("partials/header") %>
 <main role="main">
-  <!-- Main jumbotron for a primary marketing message or call to action -->
-  <div class="jumbotron">
-    <div class="container">
-      <h1 class="display-3">Welcome!</h1>
-      <p>Delivering food from restaurents in chalakudy area to your house.</p>
-      <p><a class="btn btn-primary btn-lg" href="/contactus" role="button">Contact Us &raquo;</a></p>
-    </div>
+  <div class="no-padding">
+    <img src="/images/fdbg.jpg" alt="placeholder 920" class='img-responsive' style="width:100%; height:100%;";  />
   </div>
 
   <div class="container">
@@ -14,9 +9,11 @@
     <div class="row">
       <% restaurents.forEach(function(restaurent){ %>
         <div class="col-md-4">
-          <h2><%= restaurent.name %></h2>
-          <p><%= restaurent.description %></p>
-          <p><a class="btn btn-secondary" href="/restaurent/<%=restaurent.name%>" role="button">View Menu &raquo;</a></p>
+          <div style="height:60%">
+            <h2><%= restaurent.name %></h2>
+            <p><%= restaurent.description %></p>
+          </div>
+          <p><a class="btn btn-menu" href="/restaurent/<%=restaurent.name%>" role="button">View Menu &raquo;</a></p>
         </div>
       <% }) %>
     </div>

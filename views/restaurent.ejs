@@ -10,12 +10,14 @@
 <form action="/orders" method="post">
   <div class="box">
     <div class="head">
-      <h3>Select your Items</h3>
+      <h2>Select your Items</h2>
     </div>
     <% restaurent.menu.forEach(function(item){ %>
     <div class="item">
-        <p><%= item.name + " - Rs." + item.price %></p>
-        <input type="number" name="quantity" placeholder="quantity" min=0 onchange="updateOrder(this.value, '<%= item.name %>', <%=item.price %>); displayOrder()" >
+      <div class="" style="width: 60%">
+        <p><b>&nbsp<%= item.name + " - Rs." + item.price %></b></p>
+      </div>
+      <input type="number" name="quantity" placeholder="quantity"  min=0 onchange="updateOrder(this.value, '<%= item.name %>', <%=item.price %>); displayOrder()" >
     </div>
     <% }) %>
   </div>
@@ -26,7 +28,7 @@
     </div>
       <div class="form-group">
         <label for="selected">Your selections</label>
-        <textarea id="selected" name="selected" rows="5" cols="80" readonly="true"></textarea>
+        <textarea id="selected" name="selected" rows="5" cols="78SS" readonly="true"></textarea>
       </div>
       <div class="form-group">
         <label for="name">Name</label>
@@ -41,8 +43,9 @@
         <input type="text" required="true" class="form-control" name="address" placeholder="Enter your Adress">
       </div>
       <div class="form-group">
-        <button type="submit" class="btn btn-primary">Submit Order</button>
+        <button type="submit" class="btn btn-majanda">Submit Order</button>
       </div>
+      <br />
       <input hidden=true name=restName value ="<%=restaurent.name %>"></input>
   </div>
 </form>

@@ -45,7 +45,7 @@ function displayOrder(){
     text += i.name + " Rs." + i.price + " - " + i.quantity + "\n"
     total += Number(i.price) * i.quantity;
   })
-  text += "total: " + total;
+  text += "Total: " + total;
   document.getElementById("selected").value = text;
 }
 
