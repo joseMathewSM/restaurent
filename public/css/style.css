@@ -60,6 +60,11 @@ textarea {
   padding-left: 0;
   padding-right: 0;
   padding-bottom: 3%;
-  padding-top: 2%;
   margin-top:50px;
+}
+
+.catBtn {
+  display: flex;
+  justify-content: center;
+  padding-top: 3%;
 }

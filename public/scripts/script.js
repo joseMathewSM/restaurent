@@ -54,7 +54,7 @@ function refresh(){
 }
 
 function addItem(){
-  let item = '<div class="row"><div class="col"><input type="text" name="itemname" class="form-control" placeholder="Item Name"></div><div class="col"><input type="number" name= "itemprice" class="form-control" placeholder="Price"></div>';
+  let item = '<div class="row"><div class="col"><input type="text" name="itemname" class="form-control" placeholder="Item Name"></div><div class="col"><input type="number" name= "itemprice" class="form-control" placeholder="Price"></div><div class="col"><input type="text" required="true" name="itemcategory" class="form-control" placeholder="category"></div>';
   console.log(item);
   document.getElementById("itemGroup").insertAdjacentHTML("beforeend", item);
 }

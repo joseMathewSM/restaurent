@@ -1,4 +1,4 @@
-<%- include("partials/header") %>
+  <%- include("partials/header") %>
 
 <div class="jumbotron">
   <div class="container">
@@ -12,13 +12,18 @@
     <div class="head">
       <h2>Select your Items</h2>
     </div>
-    <% restaurent.menu.forEach(function(item){ %>
-    <div class="item">
-      <div class="" style="width: 60%">
-        <p><b>&nbsp<%= item.name + " - Rs." + item.price %></b></p>
+    <% cats.forEach(function(cat){ %>
+      <div class="catBtn">
+        <button type="button" class="btn btn-info btn-lg"><%= cat %></button>
       </div>
-      <input type="number" name="quantity" placeholder="quantity"  min=0 onchange="updateOrder(this.value, '<%= item.name %>', <%=item.price %>); displayOrder()" >
-    </div>
+      <% restaurent.menu.forEach(function(item){  if(item.category == cat){%>
+      <div class="item">
+        <div class="" style="width: 60%">
+          <p><b>&nbsp<%= item.name + " - Rs." + item.price %></b></p>
+        </div>
+        <input type="number" name="quantity" placeholder="quantity"  min=0 onchange="updateOrder(this.value, '<%= item.name %>', <%=item.price %>); displayOrder()" >
+      </div>
+      <% }}) %>
     <% }) %>
   </div>
 

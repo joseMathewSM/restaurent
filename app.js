@@ -8,14 +8,15 @@ const app = express();
 app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static("public"));
-mongoose.connect("mongodb+srv://josemathew:degeneration@cluster0-7u7ii.mongodb.net/test?retryWrites=true&w=majority", {useNewUrlParser:true, useUnifiedTopology:true});
+//mongoose.connect("mongodb+srv://josemathew:degeneration@cluster0-7u7ii.mongodb.net/test?retryWrites=true&w=majority", {useNewUrlParser:true, useUnifiedTopology:true});
+mongoose.connect("mongodb://localhost:27017/restaurentDB",{useNewUrlParser:true, useUnifiedTopology:true})
 
 let port = process.env.PORT;
 if (port == null || port == "") {
   port = 8000;
 }
 
-const itemSchema = {name: String,price: String};
+const itemSchema = {name: String,price: String, category:String};
 const restaurentSchema = {
   name : String,
   phone: String,
@@ -47,9 +48,14 @@ app.get("/aboutus", function(req,res){
 
 app.get("/restaurent/:name",function(req,res){
   const name = req.params.name;
+  let cats = [];
   Restaurent.findOne({name:name},function(err,doc){
     if(!err){
-        res.render("restaurent",{restaurent:doc})
+      doc.menu.forEach(function(i){
+        cats.push(i.category);
+      })
+      cats = [...new Set(cats)];
+      res.render("restaurent",{restaurent:doc, cats:cats})
     }
   })
 });
@@ -94,7 +100,8 @@ app.post("/c-restaurent", function(req, res){
   for(let i=0;i<req.body.itemname.length;i++){
     let item = {
       name: req.body.itemname[i],
-      price: req.body.itemprice[i]
+      price: req.body.itemprice[i],
+      category: req.body.itemcategory[i]
     }
     if(req.body.itemname[i] != ''){
       tempitemArray.push(item);
@@ -119,9 +126,14 @@ app.post("/c-restaurent", function(req, res){
 
 app.get("/u-restaurent",function(req,res){
   let objId = req.query.updateItem;
+  let cats = [];
   Restaurent.findOne({"_id":objId},function(err, doc){
     if(!err){
-      res.render("updateRestaurent", {restaurent:doc})
+      doc.menu.forEach(function(i){
+        cats.push(i.category);
+      })
+      cats = [...new Set(cats)];
+      res.render("updateRestaurent", {restaurent:doc,  cats:cats})
     }
   })
 });
@@ -131,7 +143,8 @@ app.post("/u-restaurent", function(req,res){
   for(let i=0;i<req.body.itemname.length;i++){
     let item = {
       name: req.body.itemname[i],
-      price: req.body.itemprice[i]
+      price: req.body.itemprice[i],
+      category: req.body.itemcategory[i]
     }
     if(req.body.itemname[i] != ''){
       tempitemArray.push(item);
