@@ -8,8 +8,8 @@ const app = express();
 app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static("public"));
-//mongoose.connect("mongodb+srv://josemathew:degeneration@cluster0-7u7ii.mongodb.net/test?retryWrites=true&w=majority", {useNewUrlParser:true, useUnifiedTopology:true});
-mongoose.connect("mongodb://localhost:27017/restaurentDB",{useNewUrlParser:true, useUnifiedTopology:true})
+mongoose.connect("mongodb+srv://josemathew:degeneration@cluster0-7u7ii.mongodb.net/test?retryWrites=true&w=majority", {useNewUrlParser:true, useUnifiedTopology:true});
+//mongoose.connect("mongodb://localhost:27017/restaurentDB",{useNewUrlParser:true, useUnifiedTopology:true})
 
 let port = process.env.PORT;
 if (port == null || port == "") {
