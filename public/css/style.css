@@ -51,6 +51,13 @@ p {
   color:white;
 }
 
+.btn-special {
+  background-color: #421C52;
+  color:white;
+  margin-bottom:1%;
+  padding: 4% 10% 4% 10%;
+}
+
 textarea {
   padding:3%;
   max-width: 100%;
@@ -59,7 +66,7 @@ textarea {
 .no-padding {
   padding-left: 0;
   padding-right: 0;
-  padding-bottom: 3%;
+  padding-bottom: 1%;
   margin-top:50px;
 }
 
@@ -67,4 +74,8 @@ textarea {
   display: flex;
   justify-content: center;
   padding-top: 3%;
+}
+
+.special {
+  padding-bottom: 2%
 }

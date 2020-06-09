@@ -4,8 +4,19 @@
     <img src="/images/fdbg.jpg" alt="placeholder 920" class='img-responsive' style="width:100%; height:100%;";  />
   </div>
 
+  <div class="container special">
+    <div class="row">
+      <% restaurents.forEach(function(restaurent){ %>
+        <% if(restaurent.description.includes("Special")){ %>
+          <div class="col-md-3">
+            <a class="btn btn-special" href="/restaurent/<%=restaurent.name%>" role="button">  <%=restaurent.name%>  </a>
+          </div>
+        <% } %>
+      <% }) %>
+    </div>
+  </div>
+
   <div class="container">
-    <!-- Example row of columns -->
     <div class="row">
       <% restaurents.forEach(function(restaurent){ %>
         <div class="col-md-4">

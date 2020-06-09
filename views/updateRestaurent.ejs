@@ -30,13 +30,13 @@
           <% restaurent.menu.forEach(function(i){ if(i.category == cat){ %>
             <div class="row">
               <div class="col">
-                <input type="text" required="true" name="itemname" class="form-control" value="<%= i.name%>">
+                <input type="text" name="itemname" class="form-control" value="<%= i.name%>">
               </div>
               <div class="col">
-                <input type="number" required="true" name= "itemprice" class="form-control" value="<%= i.price%>">
+                <input type="number" name= "itemprice" class="form-control" value="<%= i.price%>">
               </div>
               <div class="col">
-                <input type="text" required="true" name="itemcategory" class="form-control" value="<%= i.category%>">
+                <input type="text" name="itemcategory" class="form-control" value="<%= i.category%>">
               </div>
             </div>
           <% }}); %>
