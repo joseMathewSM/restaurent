@@ -67,7 +67,7 @@ app.post("/orders", function(req,res){
     phone:req.body.mobile,
     address:req.body.address,
     restaurent:req.body.restName,
-    dateTime: new Date().toLocaleString(),
+    dateTime: new Date().toLocaleString("en-US", {timeZone: "Asia/Kolkata"}),
     items:tempOrderItems
   })
   if(tempOrder.save()){
